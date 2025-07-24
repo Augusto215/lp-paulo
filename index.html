@@ -3,266 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P&L Freitas - Advogados Especialistas em Planos de Saúde</title>
+    <title>JC Daniel - Especialistas em Ações contra Vale, Samarco e BHP</title>
+    <meta name="description" content="Agenciamento de advocacia especializado em direitos da população contra Vale do Rio Doce, Samarco e BHP. Mais de 15 anos defendendo seus direitos.">
+    <link rel="icon" type="image/x-icon" href="assets/img/4c2c0cfd-aeea-444a-8784-8b613b4e4e9d-removebg-preview (1).png">
     
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        *
+        {
+            font-family: 'Montserrat', sans-serif !important; 
+        }
+        </style>
+    <style>
+        :root {
+            --primary-color: #B91C1C;
+            --primary-dark: #991B1B;
+            --accent-color: #FEF2F2;
+            --text-light: #6B7280;
+        }
+        .btn:active {
+            background: #b91c1c !important;
+            color: #fff !important;
+        }
+        span, button, div, p
+        {
+            font-size: 1.2rem !important;
+        }
+
+     
+ 
+        .bg-primary { background-color: var(--primary-color) !important; }
+        .bg-primary-dark { background-color: var(--primary-dark) !important; }
+        .bg-accent { background-color: var(--accent-color) !important; }
+        .text-primary { color: var(--primary-color) !important; }
+        .border-primary { border-color: var(--primary-color) !important; }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(185, 28, 28, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .specialist-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 0.5rem;
+        }
+        .header span
+        {
+            font-size: .9rem !important;
+        }
+        .nav-link
+        {
+            font-size: 1.1rem !important;
+            font-weight: 500;
+        }
+        .service-icon
+        {
+            font-size: 2rem !important;
+        }
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .text-muted-custom {
+            color: var(--text-light);
+        }
+        
+        .location-card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Map styles */
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .text-muted-custom, .lead
+            {
+                font-weight: 500 !important;
+            }
+            .section-padding {
+                padding: 3rem 0;
+            }
+            .btn
+            {
+                font-weight: 600 !important;
+            }
+
+            span, button, div, p
+        {
+            font-size: 1rem !important;
+        }
+        .btn-primary
+        {
+            font-size: 1.1rem !important;
+            text-align: center !important;
+            justify-self: center !important;
+            align-self: center !important;
+            
+        }
+
+        .col-lg-7
+        {
+            text-align: center !important;
+        }
+        .header
+        {
+            display: none !important;
+        }
+        }
+    </style>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Botão Flutuante WhatsApp</title>
+        <!-- Bootstrap Icons (opcional - pode usar Font Awesome ou outro) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        
+        <style>
+            /* WhatsApp Floating Button */
+            .whatsapp-float {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 40px;
+                background-color: #25d366;
+                color: #FFF;
+                border-radius: 50px;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 2px 2px 3px #999;
+                z-index: 1000;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                border: none;
+                cursor: pointer;
+            }
+    
+            .whatsapp-float:hover {
+                background-color: #128c7e;
+                color: #FFF;
+                transform: scale(1.1);
+                text-decoration: none;
+                box-shadow: 2px 2px 10px rgba(37, 211, 102, 0.5);
+            }
+    
+            .whatsapp-float:focus {
+                outline: none;
+                color: #FFF;
+                text-decoration: none;
+            }
+    
+            .whatsapp-float i {
+                margin: 0;
+            }
+    
+            /* Animação de pulso opcional */
+            .whatsapp-float.pulse {
+                animation: pulse 2s infinite;
+            }
+    
+            @keyframes pulse {
+                0% {
+                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+                }
+                70% {
+                    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+                }
+                100% {
+                    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+                }
+            }
+    
+            /* Responsivo para mobile */
+            @media screen and (max-width: 767px) {
+                .whatsapp-float {
+                    width: 50px;
+                    height: 50px;
+                    bottom: 20px;
+                    right: 20px;
+                    font-size: 22px;
+                }
+            }
+    
+            /* Tooltip opcional */
+            .whatsapp-float::before {
+                content: "Fale Conosco!";
+                position: absolute;
+                right: 70px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 8px 12px;
+                border-radius: 20px;
+                font-size: 14px;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                font-family: Arial, sans-serif;
+            }
+    
+            .whatsapp-float:hover::before {
+                opacity: 1;
+                visibility: visible;
+            }
+    
+            @media screen and (max-width: 767px) {
+                .whatsapp-float::before {
+                    display: none;
+                }
+            }
+    
+           
+        </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header-top">
+    <!-- Top Header -->
+    <div class="header bg-primary text-white py-2">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
-                    <div class="logo">
-                        <img src="logo.png" alt="P&L Freitas" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-md-6 text-end">
-                    <div class="contact-info">
-                        <i class="fas fa-phone"></i>
-                        <span>(11) 99999-9999</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1 class="hero-title">ADVOGADOS ESPECIALISTAS EM AÇÕES CONTRA PLANOS DE SAÚDE</h1>
-                        <p class="hero-subtitle">Defendemos seus direitos com expertise e dedicação</p>
-                        <a href="#contato" class="btn btn-primary btn-lg">FALE CONOSCO</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image">
-                        <img src="hero-image.jpg" alt="Casal de idosos" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Justice Section -->
-    <section class="justice-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <div class="justice-content">
-                        <h2>O PLANO NEGOU OU DEMORA NA RESPOSTA? PODEMOS AJUDAR.</h2>
-                        <p>Somos especialistas em direito da saúde suplementar e lutamos pelos seus direitos contra planos de saúde que negam cobertura indevidamente.</p>
-                        <ul>
-                            <li>Análise gratuita do seu caso</li>
-                            <li>Atuação em todo território nacional</li>
-                            <li>Experiência comprovada em ações contra planos de saúde</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="justice-image">
-                        <img src="justice-statue.jpg" alt="Estátua da Justiça" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coverage Examples Section -->
-    <section class="coverage-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2>VEJA DIVERSOS EXEMPLOS DE COBERTURAS QUE PODEM SER EXIGIDAS DO PLANO DE SAÚDE</h2>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="coverage-card">
-                        <div class="card-number">1</div>
-                        <h4>EXAMES</h4>
-                        <h5>PET SCAN E OUTROS</h5>
-                        <p>Exames de diagnóstico por imagem essenciais para detecção precoce de doenças.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="coverage-card">
-                        <div class="card-number">2</div>
-                        <h4>HOME CARE</h4>
-                        <h5>ATENDIMENTO EM CASA</h5>
-                        <p>Assistência médica domiciliar para pacientes que necessitam de cuidados especializados.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="coverage-card">
-                        <div class="card-number">3</div>
-                        <h4>MATERIAIS PROTESES</h4>
-                        <h5>MARCAPASSOS E OUTROS</h5>
-                        <p>Dispositivos médicos implantáveis necessários para manutenção da vida e saúde.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="coverage-card">
-                        <div class="card-number">4</div>
-                        <h4>CIRURGIA</h4>
-                        <h5>PLÁSTICA</h5>
-                        <p>Procedimentos cirúrgicos reparadores e reconstrutivos com indicação médica.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="coverage-card">
-                        <div class="card-number">5</div>
-                        <h4>URGÊNCIAS E</h4>
-                        <h5>EMERGÊNCIAS</h5>
-                        <p>Atendimento imediato em situações que colocam a vida em risco.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="coverage-card">
-                        <div class="card-number">6</div>
-                        <h4>TRATAMENTO PARA</h4>
-                        <h5>DOENÇAS RARAS</h5>
-                        <p>Terapias especializadas para condições médicas de baixa prevalência.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="#contato" class="btn btn-primary">FALE CONOSCO AGORA</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Medications Section -->
-    <section class="medications-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="medications-image">
-                        <img src="medications.jpg" alt="Medicamentos" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="medications-content">
-                        <h2>MEDICAMENTOS E CIRURGIAS PODEM CHEGAR ÀS CENTENAS DE MILHARES DE REAIS</h2>
-                        <p>Os custos com tratamentos médicos podem ser extremamente elevados, especialmente quando envolvem:</p>
-                        <ul>
-                            <li>Medicamentos oncológicos de última geração</li>
-                            <li>Cirurgias de alta complexidade</li>
-                            <li>Tratamentos experimentais aprovados pela ANVISA</li>
-                            <li>Terapias genéticas e imunoterapias</li>
-                            <li>Procedimentos em centros de referência</li>
-                        </ul>
-                        <p>Não deixe que questões financeiras impeçam seu acesso ao melhor tratamento disponível.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section class="video-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2>VAMOS AGIR COM A RAPIDEZ NECESSÁRIA PARA BUSCAR O TRATAMENTO</h2>
-                    <div class="video-wrapper">
-                        <div class="video-placeholder">
-                            <i class="fas fa-play-circle"></i>
-                            <p>Clique para assistir nosso vídeo explicativo</p>
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap gap-4">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-telephone me-2"></i>
+                            <span>(27) 99644-5191</span>
+                        </div>
+                        <div class="d-none align-items-center">
+                            <i class="bi bi-envelope me-2"></i>
+                            <span>contato@jcdaniel.adv.br</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-building me-2"></i>
+                            <span>CNPJ: 47.062.543/0001-05</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="video-content">
-                        <p>Tempo é fundamental quando se trata de saúde. Nossa equipe atua com agilidade para garantir que você tenha acesso ao tratamento necessário no menor tempo possível.</p>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex align-items-center justify-content-md-end">
+                        <i class="bi bi-geo-alt me-2"></i>
+                        <span>Serra - ES</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-primary d-flex align-items-center "  href="#inicio">
+                <img style="height: 2.5rem;" src="assets/img/4c2c0cfd-aeea-444a-8784-8b613b4e4e9d-removebg-preview (1).png">
+                <i class="bi bi-scales me-2 fs-3"></i>
+                JC DANIEL
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#inicio">Início</a>
+                    <a class="nav-link" href="#servicos">Serviços</a>
+                    <a class="nav-link" href="#localizacoes">Escritórios</a>
+                    <a style="font-size: 1.1rem !important  ;" class="btn btn-primary  ms-2" href="https://wa.me/5527996445191?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20JC%20Daniel." target="_blank">  <i class="bi bi-whatsapp me-2"></i> Falar no WhatsApp </a> 
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-gradient text-white section-padding" style=" background: linear-gradient(to right, rgba(43, 52, 71, 0.682), rgba(69, 69, 69, 0.695)), url('assets/img/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7" style="text-align:start !important;">
+                    <span class="badge bg-light text-primary mb-3 px-3 py-2">Agenciamento de Advocacia</span>
+                    <h1 class="hero-title display-6 fw-bold mb-4">
+                        ESPECIALISTAS EM AÇÕES CONTRA VALE, SAMARCO E BHP
+                    </h1>
+                    <p class="lead mb-4">
+                        A JC Daniel nasceu com o propósito de auxiliar a população em questões jurídicas e administrativas contra as ações da Vale do Rio Doce, Samarco e BHP. Defendemos seus direitos há mais de 15 anos.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="https://wa.me/5527996445191?text=Olá!%20Gostaria%20de%20consultar%20meu%20processo%20contra%20Vale,%20Samarco%20ou%20BHP." target="_blank" class="btn btn-light btn-lg text-primary">
+                            <i class="bi bi-clipboard-check me-2"></i>Consultar Processo
+                        </a>
+                        <a href="https://wa.me/5527996445191?text=Olá!%20Gostaria%20de%20cadastrar%20um%20novo%20processo%20contra%20Vale,%20Samarco%20ou%20BHP." target="_blank" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-building me-2"></i>Cadastrar Novo Processo
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div style="background: rgba(44, 41, 41, 0.412) !important;" class="bg-white bg-opacity-10 backdrop-blur rounded p-4">
+                        <h3 class="h4 fw-bold mb-3">Atendimento Especializado</h3>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle text-light me-2"></i>
+                                <span>Consultoria gratuita</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle text-light me-2"></i>
+                                <span>Esclarecimentos sobre direitos</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle text-light me-2"></i>
+                                <span>Atendimento WhatsApp 24h</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-check-circle text-light me-2"></i>
+                                <span>5 escritórios na Serra</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="section-padding bg-accent">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-7 fw-bold text-primary mb-3">
+                    COMO PODEMOS AUXILIAR VOCÊ
+                </h2>
+                <p class="lead text-muted-custom">
+                    Prestamos consultoria esclarecendo dúvidas sobre os direitos da população e auxiliamos em diversas questões jurídicas e administrativas
+                </p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm card-hover">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">⚖️</div>
+                            <h5 class="card-title text-primary fw-bold">DIREITOS E INDENIZAÇÕES</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">CONSULTORIA JURÍDICA</h6>
+                            <p class="card-text text-muted-custom">
+                                Esclarecemos dúvidas sobre os direitos da população em relação a indenizações e reparações contra Vale, Samarco e BHP.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm card-hover">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">📋</div>
+                            <h5 class="card-title text-primary fw-bold">ACOMPANHAMENTO DE PROCESSOS</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">ASSESSORIA PROCESSUAL</h6>
+                            <p class="card-text text-muted-custom">
+                                Auxiliamos a esclarecer dúvidas sobre os processos que correm contra essas empresas e orientamos sobre os próximos passos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm card-hover">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">🏢</div>
+                            <h5 class="card-title text-primary fw-bold">QUESTÕES ADMINISTRATIVAS</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">APOIO TÉCNICO</h6>
+                            <p class="card-text text-muted-custom">
+                                Prestamos suporte em questões administrativas relacionadas aos impactos causados pelas atividades dessas mineradoras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm card-hover">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">💰</div>
+                            <h5 class="card-title text-primary fw-bold">REPARAÇÕES AMBIENTAIS</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">DANOS COLETIVOS</h6>
+                            <p class="card-text text-muted-custom">
+                                Orientações sobre direitos relacionados a reparações por danos ambientais e impactos às comunidades locais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm card-hover">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">📱</div>
+                            <h5 class="card-title text-primary fw-bold">ATENDIMENTO WHATSAPP</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">SUPORTE 24H</h6>
+                            <p class="card-text text-muted-custom">
+                                Atendimento especializado via WhatsApp para esclarecimentos rápidos e orientações sobre seus direitos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm card-hover">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">🏛️</div>
+                            <h5 class="card-title text-primary fw-bold">ESCRITÓRIOS FIXOS</h5>
+                            <h6 class="card-subtitle mb-3 text-muted">ATENDIMENTO PRESENCIAL</h6>
+                            <p class="card-text text-muted-custom">
+                                5 escritórios estrategicamente localizados na Serra para atendimento presencial personalizado e acolhedor.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://wa.me/5527996445191?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20JC%20Daniel." target="_blank" class="btn btn-primary btn-lg">                            <i class="bi bi-whatsapp me-2"></i>
+                     Falar Conosco no WhatsApp</a>
             </div>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="problem-section">
+    <section class="section-padding bg-white" style="background-size:cover;background:linear-gradient(to right, rgba(43, 52, 71, 0.785), rgba(0, 0, 0, 0.704)), url('assets/img/advogado-para-empresas-em-sp.webp') ;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="problem-content">
-                        <h2>O PROBLEMA É COM O SUS? ESTAMOS PREPARADOS</h2>
-                        <p>Também atuamos em casos envolvendo o Sistema Único de Saúde (SUS), garantindo que você tenha acesso aos seus direitos constitucionais à saúde.</p>
-                        <ul>
-                            <li>Fornecimento de medicamentos de alto custo</li>
-                            <li>Realização de cirurgias eletivas</li>
-                            <li>Acesso a tratamentos não disponíveis na rede</li>
-                            <li>Transferência para centros especializados</li>
-                        </ul>
-                        <p>Nossa experiência abrange tanto o setor privado quanto o público de saúde.</p>
+                <div class="col-lg-7">
+                    <h2 style="color: #fff !important;" class="display-7 fw-bold text-primary mb-4">
+                        VOCÊ FOI IMPACTADO PELAS AÇÕES DA VALE, SAMARCO OU BHP?
+                    </h2>
+                    <div class="text-muted-custom mb-4">
+                        <p  style="color:#fff !important"class="mb-3">
+                            As atividades minerárias podem causar diversos impactos à população local, incluindo danos ambientais, desvalorização imobiliária, problemas de saúde e prejuízos econômicos.
+                        </p>
+                        <p style="color:#fff !important" class="mb-3">
+                            Nossa equipe especializada está preparada para orientar você sobre seus direitos e as possibilidades de reparação e indenização disponíveis.
+                        </p>
+                        <p style="color:#fff !important">
+                            Com mais de 15 anos de experiência, já auxiliamos centenas de pessoas a entenderem e reivindicarem seus direitos contra essas grandes corporações.
+                        </p>
                     </div>
+                    <a href="https://wa.me/5527996445191?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20JC%20Daniel." class="mb-4 btn btn-light text-primary btn-lg"><i class="bi bi-clipboard-check me-2"></i> Consulte seus Direitos Gratuitamente</a>
                 </div>
-                <div class="col-lg-6">
-                    <div class="problem-image">
-                        <img src="doctor-image.jpg" alt="Médico" class="img-fluid">
+                <div class="col-lg-5">
+                    <div class="bg-accent p-4 rounded" style="background: rgba(44, 41, 41, 0.412) !important;">
+                        <h3 class="h4 fw-bold text-primary mb-4" style="color:#fff !important">Principais Impactos:</h3>
+                        <div class="border-bottom pb-2 mb-3 d-flex justify-content-between">
+                            <span class="fw-medium" style="color:#fff !important">Danos Ambientais</span>
+                            <span class="text-primary fw-bold" style="color:#fff !important">Ar, água e solo</span>
+                        </div>
+                        <div class="border-bottom pb-2 mb-3 d-flex justify-content-between">
+                            <span class="fw-medium" style="color:#fff !important">Desvalorização Imobiliária</span>
+                            <span class="text-primary text-end fw-bold" style="color:#fff !important">Propriedades rurais/urbanas</span>
+                        </div>
+                        <div class="border-bottom pb-2 mb-3 d-flex justify-content-between">
+                            <span class="fw-medium" style="color:#fff !important">Problemas de Saúde</span>
+                            <span class="text-primary fw-bold" style="color:#fff !important">Poeira, poluição</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="fw-medium" style="color:#fff !important">Prejuízos Econômicos</span>
+                            <span class="text-primary fw-bold" style="color:#fff !important; text-align: end;">Atividades produtivas</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Specialists Section -->
-    <section class="specialists-section">
+    <!-- Why Choose Us Section -->
+    <section class="section-padding bg-accent">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4">
+                    <div class="bg-white bg-opacity-75 p-4 rounded">
+                        <h3 class="h4 fw-bold text-primary mb-3">Nossa Missão</h3>
+                        <p class="text-muted-custom mb-4">
+                            A JC Daniel nasceu com o propósito específico de auxiliar a população em questões contra essas grandes mineradoras, oferecendo suporte técnico e jurídico especializado.
+                        </p>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-shield-check text-primary me-2"></i>
+                                <span>Experiência de 15+ anos</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-people text-primary me-2"></i>
+                                <span>Equipe especializada</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt text-primary me-2"></i>
+                                <span>Presença local na Serra</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <h2 class="display-7 fw-bold text-primary mb-4">
+                        POR QUE ESCOLHER A JC DANIEL?
+                    </h2>
+                    <p class="lead text-muted-custom mb-4">
+                        Somos especializados especificamente em questões envolvendo Vale do Rio Doce, Samarco e BHP, conhecendo profundamente os direitos da população e as estratégias mais eficazes.
+                    </p>
+                    <p class="text-muted-custom mb-4">
+                        Nossa atuação vai além do jurídico: prestamos consultoria completa, esclarecemos dúvidas sobre direitos, orientamos sobre processos e oferecemos suporte administrativo personalizado.
+                    </p>
+                    <a href="#contato" class="btn btn-primary btn-lg">                            <i class="bi bi-whatsapp me-2"></i>
+                         Conhecer Nossa Abordagem</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="localizacoes" style="background: #fff !important;" class="section-padding bg-accent">
         <div class="container">
             <div class="text-center mb-5">
-                <h2>CONHEÇA OS ESPECIALISTAS</h2>
+                <h2 class="display-7 fw-bold text-primary mb-3">NOSSOS ESCRITÓRIOS</h2>
+                <p class="lead text-muted-custom">
+                    5 escritórios fixos estrategicamente localizados na Serra para melhor atendê-lo
+                </p>
             </div>
-            
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="specialist-card">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
-                                <div class="specialist-image">
-                                    <img src="paulo-henrique.jpg" alt="Paulo Henrique de Freitas" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="specialist-info">
-                                    <h3>PAULO HENRIQUE DE FREITAS</h3>
-                                    <h4>SÓCIO FUNDADOR</h4>
-                                    <p>Advogado especialista em Direito da Saúde com mais de 15 anos de experiência. Pós-graduado em Direito Médico e Hospitalar. Membro da Comissão de Direito Médico da OAB/SP.</p>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm location-card card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-geo-alt text-primary fs-4 mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold text-primary mb-2">AÇÃO RIO DOCE/HOLANDA</h5>
+                                    <p class="mb-1 text-muted-custom">Serra - ES</p>
+                                    <p class="small text-muted">Escritório principal com atendimento completo</p>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="openMapModal(0)">Ver no Mapa</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6 mb-4">
-                    <div class="specialist-card">
-                        <div class="row align-items-center">
-                            <div class="col-md-4">
-                                <div class="specialist-image">
-                                    <img src="thais-espanhol.jpg" alt="Thaís Espanhol Braun" class="img-fluid">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm location-card card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-geo-alt text-primary fs-4 mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold text-primary mb-2">MARIA NIOBE/SERRA SEDE</h5>
+                                    <p class="mb-1 text-muted-custom">Rua Alfredo Calmom, 189</p>
+                                    <p class="small text-primary">Atrás da UPA Serra Sede</p>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="openMapModal(1)">Ver no Mapa</button>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <div class="specialist-info">
-                                    <h3>THAÍS ESPANHOL BRAUN</h3>
-                                    <h4>SÓCIA</h4>
-                                    <p>Advogada especialista em Direito do Consumidor e Direito da Saúde. Mestre em Direito pela PUC-SP. Experiência em ações contra planos de saúde e operadoras.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm location-card card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-geo-alt text-primary fs-4 mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold text-primary mb-2">JARDIM TROPICAL</h5>
+                                    <p class="mb-1 text-muted-custom">Rua Paraíso, 27</p>
+                                    <p class="small text-primary">Esquina com a Igreja Assembleia</p>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="openMapModal(2)">Ver no Mapa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm location-card card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-geo-alt text-primary fs-4 mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold text-primary fw-bold text-primary mb-2">CENTRAL CARAPINA</h5>
+                                    <p class="mb-1 text-muted-custom">Rua Ceará, 61</p>
+                                    <p class="small text-primary">Próximo ao supermercado da avenida Central</p>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="openMapModal(3)">Ver no Mapa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm location-card card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="bi bi-geo-alt text-primary fs-4 mt-1"></i>
+                                <div>
+                                    <h5 class="fw-bold text-primary mb-2">CIDADE POMAR</h5>
+                                    <p class="mb-1 text-muted-custom">Avenida Jambo, 29</p>
+                                    <p class="small text-primary">Próximo ao Temperão</p>
+                                    <button class="btn btn-outline-primary btn-sm mt-2" onclick="openMapModal(4)">Ver no Mapa</button>
                                 </div>
                             </div>
                         </div>
@@ -272,38 +663,260 @@
         </div>
     </section>
 
-    <!-- Map Section -->
-    <section class="map-section">
-        <div class="container-fluid p-0">
-            <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1975!2d-46.6553!3d-23.5613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQwLjciUyA0NsKwMzknMTkuMSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890" 
-                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <!-- Map Modal -->
+    <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary fw-bold" id="mapModalLabel">Localização do Escritório</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <h6 class="fw-bold text-primary" id="officeName"></h6>
+                        <p class="text-muted mb-1" id="officeAddress"></p>
+                        <small class="text-primary" id="officePhone"></small>
+                    </div>
+                    <div id="map"></div>
+                    <div class="mt-3 d-flex gap-2">
+                        <button class="btn btn-primary" id="directionsBtn" onclick="openDirections()">
+                            <i class="bi bi-compass me-2"></i>Como Chegar
+                        </button>
+                        <button class="btn btn-outline-primary" id="whatsappBtn" onclick="contactOffice()">
+                            <i class="bi bi-whatsapp me-2"></i>Contato WhatsApp
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="bg-primary text-white py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="footer-logo">
-                        <img src="logo.png" alt="P&L Freitas" class="img-fluid">
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="bi bi-scales me-2 fs-3"></i>
+                        <span class="h3 fw-bold mb-0">JC DANIEL</span>
+                    </div>
+                    <p class="mb-4 text-white-50">
+                        Auxiliando a população em questões jurídicas e administrativas contra Vale, Samarco e BHP há mais de 15 anos.
+                    </p>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-telephone me-2"></i>
+                            <span>(27) 99644-5191</span>
+                        </div>
+                        <div class="d-none align-items-center">
+                            <i class="bi bi-envelope me-2"></i>
+                            <span>contato@jcdaniel.adv.br</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-whatsapp me-2"></i>
+                            <span>Atendimento WhatsApp 24h</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 text-end">
-                    <div class="footer-contact">
-                        <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
-                        <p><i class="fas fa-envelope"></i> contato@plfreitas.com.br</p>
-                    </div>
+                <div class="col-lg-2 mb-4">
+                    <h5 class="fw-bold mb-3">Serviços</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#servicos" class="text-white-50 text-decoration-none">Consultoria Jurídica</a></li>
+                        <li class="mb-2"><a href="#servicos" class="text-white-50 text-decoration-none">Acompanhamento</a></li>
+                        <li class="mb-2"><a href="#servicos" class="text-white-50 text-decoration-none">Reparações</a></li>
+                        <li class="mb-2"><a href="#servicos" class="text-white-50 text-decoration-none">Questões Admin.</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">Escritórios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><span class="text-white-50">Rio Doce/Holanda</span></li>
+                        <li class="mb-2"><span class="text-white-50">Maria Niobe/Serra Sede</span></li>
+                        <li class="mb-2"><span class="text-white-50">Jardim Tropical</span></li>
+                        <li class="mb-2"><span class="text-white-50">Central Carapina</span></li>
+                        <li class="mb-2"><span class="text-white-50">Cidade Pomar</span></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">Atendimento</h5>
+                    <p class="text-white-50 mb-3">
+                        Segunda a Sexta: 8h às 18h<br>
+                        Sábado: 8h às 12h<br>
+                        WhatsApp: 24h
+                    </p>
+                   
+                </div>
+            </div>
+            <hr class="my-4 border-white-50">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0 text-white-50">
+                        © 2025 JC Daniel - Agenciamento de Advocacia. Todos os direitos reservados.
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="mb-0 text-white-50">
+                        <small>Desenvolvido por ALPHAMKT    </small>
+                    </p>
                 </div>
             </div>
         </div>
+        
     </footer>
-
+    <a href="https://wa.me/5527996445191?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20JC%20Daniel." 
+    target="_blank" 
+    class="whatsapp-float pulse">
+     <i class="bi bi-whatsapp"></i>
+ </a>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+
+    <script>
+        // Dados dos escritórios com coordenadas
+        const offices = [
+            {
+                number: "5527000000001",
+                name: "JC Daniel Rio Doce/Holanda",
+                address: "Serra, ES - Brasil",
+                description: "Escritório principal com atendimento completo",
+                latitude: -20.1276,
+                longitude: -40.2976,
+                delay: 1200
+            },
+            {
+                number: "5527000000002",
+                name: "JC Daniel Maria Niobe/Serra Sede",
+                address: "Rua Alfredo Calmom, 189 - Atrás da UPA Serra Sede - Serra, ES",
+                description: "Atrás da UPA Serra Sede",
+                latitude: -20.1282,
+                longitude: -40.3075,
+                delay: 1200
+            },
+            {
+                number: "5527000000003",
+                name: "JC Daniel Jardim Tropical",
+                address: "Rua Paraíso, 27 - Jardim Tropical - Esquina com a Igreja Assembleia - Serra, ES",
+                description: "Esquina com a Igreja Assembleia",
+                latitude: -20.2053842,
+                longitude: -40.2751161,
+                delay: 1200
+            },
+            {
+                number: "5527000000004",
+                name: "JC Daniel Central Carapina",
+                address: "Rua Ceará, 61 - Central Carapina - Próximo ao supermercado da avenida Central - Serra, ES",
+                description: "Próximo ao supermercado da avenida Central",
+                latitude: -20.2150,
+                longitude: -40.2765,
+                delay: 1200
+            },
+            {
+                number: "5527000000005",
+                name: "JC Daniel Cidade Pomar",
+                address: "Avenida Jambo, 29 - Cidade Pomar - Próximo ao Temperão - Serra, ES",
+                description: "Próximo ao Temperão",
+                latitude: -20.1446477,
+                longitude: -40.268806,
+                delay: 1200
+            }
+        ];
+
+        let map;
+        let currentOfficeIndex = 0;
+
+        function initMap(lat, lng, officeName, officeAddress) {
+            // Remove o mapa anterior se existir
+            if (map) {
+                map.remove();
+            }
+
+            // Cria um novo mapa
+            map = L.map('map').setView([lat, lng], 15);
+
+            // Adiciona tiles do OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Adiciona marcador customizado
+            const customIcon = L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="background-color: #B91C1C; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; box-shadow: 0 2px 10px rgba(185, 28, 28, 0.3);"><i class="bi bi-geo-alt-fill"></i></div>`,
+                iconSize: [30, 30],
+                iconAnchor: [15, 30]
+            });
+
+            L.marker([lat, lng], { icon: customIcon })
+                .addTo(map)
+                .bindPopup(`
+                    <div class="text-center">
+                        <strong style="color: #B91C1C;">${officeName}</strong><br>
+                        <small>${officeAddress}</small>
+                    </div>
+                `)
+                .openPopup();
+
+            // Força o resize do mapa após um pequeno delay
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 100);
+        }
+
+        function openMapModal(officeIndex) {
+            currentOfficeIndex = officeIndex;
+            const office = offices[officeIndex];
+            
+            // Atualiza informações do modal
+            document.getElementById('officeName').textContent = office.name;
+            document.getElementById('officeAddress').textContent = office.address;
+            document.getElementById('officePhone').textContent = `Telefone: ${office.number}`;
+
+            // Abre o modal
+            const modal = new bootstrap.Modal(document.getElementById('mapModal'));
+            modal.show();
+
+            // Inicializa o mapa após o modal estar visível
+            setTimeout(() => {
+                initMap(office.latitude, office.longitude, office.name, office.address);
+            }, 300);
+        }
+
+        function openDirections() {
+            const office = offices[currentOfficeIndex];
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${office.latitude},${office.longitude}`;
+            window.open(url, '_blank');
+        }
+
+        function contactOffice() {
+            const office = offices[currentOfficeIndex];
+            const message = encodeURIComponent(`Olá! Gostaria de mais informações sobre o escritório ${office.name}.`);
+            const whatsappUrl = `https://wa.me/${office.number}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scrolling para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Limpa o mapa quando o modal é fechado
+        document.getElementById('mapModal').addEventListener('hidden.bs.modal', function () {
+            if (map) {
+                map.remove();
+                map = null;
+            }
+        });
+    </script>
 </body>
 </html>
